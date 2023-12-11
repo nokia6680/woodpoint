@@ -1,0 +1,8 @@
+section.why
+    h2.why__title Почему мы?
+
+    ul.why__list
+        for i in whyList
+            img(src="static/images/content/" +i.icon +".svg" width="" height="" alt="" +i.name).why__icon
+            h3.why__name=i.name
+            p.why__description=i.description
