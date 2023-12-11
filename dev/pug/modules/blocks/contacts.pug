@@ -1,0 +1,18 @@
+div(class="contacts " +contactsType)
+    h3.contacts__title Контакты
+
+    .contacts__block
+        b.contacts__block-name Офис
+
+        ul.contacts__block-list
+            +contactsItem('+7(925) 437-25-56', 'tel:+79254372556', '')
+            +contactsItem('info[at]wood-point.com', 'mailto:info[at]wood-point.com', '')
+            +contactsItem('119 435, г. МоскваvБольшой Саввинский переулок 10 стр. 2А', '', '')
+
+    .contacts__block
+        b.contacts__block-name Производство
+
+        ul.contacts__block-list
+            +contactsItem('+7(925) 437-25-56', 'tel:+79254372556', '')
+            +contactsItem('info[at]wood-point.com', 'mailto:info[at]wood-point.com', '')
+            +contactsItem('МО, Серпухов', '', '')

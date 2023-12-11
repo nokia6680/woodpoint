@@ -1,0 +1,140 @@
+.nav {
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    @include flex-setting(column, flex-start, center);
+
+    z-index: 3;
+
+    background: rgba(217, 217, 217, 0.11);
+    backdrop-filter: blur(80.5px);
+
+    padding-top: toRem(154);
+    padding-bottom: toRem(70);
+
+    transition: left 0.15s $cubic;
+
+    &.is-active {
+        left: 0;
+        transition: left 0.15s $cubic;
+    }
+
+    &__list {
+        @include flex-setting(column, flex-start, center);
+        width: 100%;
+    }
+
+    &__item {
+        width: auto;
+        @include flex-setting(column, center, center);
+        padding: 0 toRem(20);
+
+        &:first-of-type {
+            .nav__link {
+                border-bottom: toRem(1) solid $white;
+            }
+        }
+
+        &:last-of-type {
+            display: none;
+        }
+    }
+
+    &__link {
+        padding: toRem(20) 0;
+        @include font-setting($primary-font, toRem(24), normal, 400, $white);
+        text-decoration: none;
+
+        &:active {
+            text-decoration: underline;
+        }
+    }
+
+    &__social {
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+
+    &__apps {
+        display: none;
+    }
+}
+
+@include min-screen(768px) {
+    .nav {
+        padding-top: toRem(144);
+        padding-bottom: toRem(90);
+    
+        &__link {
+            font-size: toRem(32);
+        }
+    }
+}
+
+@include min-screen(1440px) {
+    .nav {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-self: center;
+        z-index: 4;
+    
+        background: transparent;
+        backdrop-filter: none;
+    
+        transition: left 0s $cubic;
+
+
+        &__list {
+            width: auto;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-self: center;
+            gap: toRem(50);
+            margin-right: toRem(140);
+        }
+    
+        &__item {
+            padding: 0;
+    
+            &:first-of-type {
+                .nav__link {
+                    border-bottom: none;
+                }
+            }
+    
+            &:last-of-type {
+                display: flex;
+            }
+        }
+    
+        &__link {
+            padding: 0;  
+            font-size: toRem(16);
+            letter-spacing: toRem(0.16);
+            transition: opacity 0.2s linear;
+            
+            &:hover {
+                opacity: 0.7;
+                transition: opacity 0.2s linear;
+            }
+        }
+
+        &__social {
+            display: none;
+        }
+
+        &__apps {
+            display: flex;
+        }
+    }
+}

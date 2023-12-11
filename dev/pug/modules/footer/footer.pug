@@ -1,0 +1,23 @@
+- var navLinks = [{name: 'Главная', link: 'index.html'},{name: 'Продукция', link: 'catalog.html'}, {name: 'О компании', link: 'about.html'}, {name: 'Онлайн-магазин', link: 'online-shop.html'}, {name: 'Контакты', link: ''}]
+- var social = [{icon: 'in', link: ''}, {icon: 'wa', link: ''}]
+
+footer.footer
+    a(href="index.html" target="_self").footer__logo
+        img(src="static/images/content/main-logo.svg" width="" height="" alt="")
+        
+    .footer__nav
+        h3.footer__subtitle Links
+        ul.footer__list
+            for i in navLinks
+                li.footer__list-item
+                    a(href="" +i.link target="_self").footer__list-link=i.name 
+    include ../blocks/contacts
+    ul.footer__social.social
+        for i in social
+            li.social__item
+                a(href="" +i.link target="_blank").social__link
+                    svg
+                        use(xlink:href="static/images/sprite/symbol/sprite.svg#" +i.icon)
+    .footer__bottom
+        span.footer__legal @&nbsp;WoodPoint Все права защищены. 
+    

@@ -1,0 +1,36 @@
+- var contactsType = "intro__contacts"
+- var social = [{icon: 'in', link: ''}, {icon: 'wa', link: ''}]
+
+section.intro
+    .intro__info
+        include ../blocks/contacts
+        h1.intro__title Wood-Point
+        p.intro__description Высокотехнологичное производство премиум материалов для отделки бань и саун. 
+
+        form(method="" action="").intro__form
+            //- здесь надо будет подрубить selectize, option в зависимости от страны - флажок svg
+            select.intro__form-select
+                option(value="ru")
+                option(value="es")
+                option(value="us")
+            input(type="tel" name="tel" id="tel" placeholder="+7(___)___-__-__" required).intro__form-input.mask-tel
+            button(type="submit").intro__form-submit Связаться
+        .intro__social.social
+            for i in social
+                li.social__item
+                    a(href="" +i.link target="_blank").social__link
+                        svg
+                            use(xlink:href="static/images/sprite/symbol/sprite.svg#" +i.icon)
+    //- swiper slider, на мобиле не будет текста и кнопок, просто автопролистывание
+    .intro__slider.intro-swiper-container
+        .swiper-wrapper
+            +introSlide('main-1', 'Собственное производство1', 'WOOD-POINT уделяет особое внимание качеству производимой продукции. Получаемое от поставщиков сырье проходит жесткий контроль, а в течение всего производственного процесса за качеством работы')
+            +introSlide('main-2', 'Собственное производство2', 'WOOD-POINT уделяет особое внимание качеству производимой продукции. Получаемое от поставщиков сырье проходит жесткий контроль, а в течение всего производственного процесса за качеством работы')
+            +introSlide('main-3', 'Собственное производство3', 'WOOD-POINT уделяет особое внимание качеству производимой продукции. Получаемое от поставщиков сырье проходит жесткий контроль, а в течение всего производственного процесса за качеством работы')
+        .intro__slider-controls
+            button(type="button").intro__slider-btn.intro-prev
+                svg
+                    use(xlink:href="static/images/sprite/symbol/sprite.svg#chevron-left")
+            button(type="button").intro__slider-btn.intro-next
+                svg
+                    use(xlink:href="static/images/sprite/symbol/sprite.svg#chevron-right")
